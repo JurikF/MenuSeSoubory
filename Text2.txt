@@ -1,0 +1,26 @@
+router 1
+en
+conf t
+banner motd "Access Restricted!"
+service password-encryption
+hostname R1
+no ip domain-lookup
+enable secret cisco
+!
+line con 0
+logging synchronous
+password cisco
+login
+! gig
+int Gig 0/0/1
+description lan
+ip address 10.1.1.254 255.255.0.0
+no shutdown
+! ser
+int Ser0/1/0
+description R1-R2
+clock rate 128000
+ip address 10.0.0.1 255.255.255.0
+no shutdown
+! rip
+router rip
