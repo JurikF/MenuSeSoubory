@@ -30,7 +30,7 @@ public class Menu extends JFrame {
 
         });
         zavřítSouborButton.addActionListener(e -> {
-            
+            text.setText(null);
         });
     }
 
